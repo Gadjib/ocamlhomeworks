@@ -1,5 +1,3 @@
-type tree = Braces of tree | Star;;
-
 let str n c =
   let s = ref "" in
   begin
