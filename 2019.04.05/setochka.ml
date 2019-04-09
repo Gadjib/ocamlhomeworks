@@ -10,10 +10,11 @@ let nstr n =
   end
 ;;
 
+
 let print_elt() =
   let s = ref "" in
   begin
-    for i = 1 to 7 do
+    for i = 1 to 6+1 do
       s:=!s^"*";
     done;
     s:=!s^"\n";
