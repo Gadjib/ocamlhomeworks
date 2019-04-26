@@ -1,12 +1,17 @@
 type tree = L | N of int*tree*tree;;
 
-let rec add_tree t t1 =
-  match t with
-  |L -> t1
-  |N (n,L,L) -> N(n,L,t1)
-  |N (n,t11,t12) -> add_tree t t12
-  |_ -> failwith "What?"
+let add_tree t t1 =
+  let tt = ref t 
+  and rec f tt t1 =
+    match !tt with
+    |L -> t1
+    |N (n,L,L) -> N(n,L,t1)
+    |N (n,t11,t12) -> tt:=add_tree !tt t12
+  in 
+  f tt t1;
+  !tt;
 ;;
+
 let main n =
   let rec bambook t n =
     if n = 0 then t else bambook (add_tree t (N(n,L,L))) (n-1)
