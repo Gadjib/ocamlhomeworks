@@ -1,10 +1,11 @@
 type tree = L | N of int*tree*tree;;
 
-let add_tree t t1 =
+let rec add_tree t t1 =
   match t with
   |L -> t1
   |N (n,L,L) -> N(n,L,t1)
-  |_ -> failwith 
+  |N (n,t11,t12) -> add_tree t t12
+  |_ -> failwith "What?"
 ;;
 let main n =
   let rec bambook t n =
