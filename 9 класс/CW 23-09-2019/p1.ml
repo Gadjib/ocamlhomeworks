@@ -1,4 +1,4 @@
-let f = open_in "file.txt";;
+let f = open_in "file.txt";; 
 
 let rec v_read_file() =
 	try 
