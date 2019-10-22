@@ -1,19 +1,28 @@
-(* Найти количество сиволов *)
+open String;;
 
-let sumnum n =
-  if not (n<100 && n>9) then failwith "Error: too many numbers";
-  (n mod 10)+((n/10) mod 10)
-;;
+let put c l =
+let rec f c l n =
+        match l with
+        | [] -> 0 
+        | hd::tl -> if snd hd = c then n else f c tl (n+1)
+in f c l 1;;
 
-let expictation() =
-  let sum = ref 0. in
-  begin
-    for i = 10 to 99 do
-      sum:=!sum+.(1./.90.)*.(float(sumnum i));
-    done;
-    !sum;
-  end;
-;;
+let rec raise c l =
+        match l with
+        | [] -> l
+        | hd::tl -> if snd hd = c then ((((fst hd)+1),c)::tl) else raise c tl;;
 
-print_float (expictation());;
-print_newline();;
+let rec count s l =
+        if s = "" then l else
+        begin
+                if put s.[0] l = 0 then count (sub s 1 ((length s)-1)) [(1,s.[0])]@l else count (sub s 1 ((length s)-1)) (raise s.[0] l)
+        end;;
+
+
+let print_deci (x,y) =
+        print_string "(";
+        print_int x;
+        print_char ',';
+        print_char y;
+        print_string ")";;
+List.iter print_deci (count "abcdeffggg" []);;
