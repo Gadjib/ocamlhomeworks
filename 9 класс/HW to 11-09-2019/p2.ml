@@ -9,6 +9,7 @@ let if_glas c =
         | 'u' -> 1
         | 'y' -> 1
         | _ -> 0
+;;
 
 let colglas s =
     let sum = ref 0 in
@@ -20,15 +21,8 @@ let colglas s =
     end
 ;; 
 
-let expictation s =
-   let sum = ref 0. in
-   begin
-       for i = 0 to (length s) - 1 do
-           sum:=!sum+.((3./.13.)*.(colglas s));
-       done;
-       !sum;
-   end
-;;
-
-print_float (expictation (read_line()));;
+let expectation s =
+    ((3./.13.)*.(colglas s));;
+       
+print_float (expectation (read_line()));;
 print_newline();;
