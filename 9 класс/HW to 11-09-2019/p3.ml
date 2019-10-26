@@ -22,7 +22,8 @@ let colglas s =
 ;; 
 
 let expectation s =
-   ((3./.13.)*.(colglas s));;
+   (colglas s)./(float (length s))
+;;
 
 print_float (expectation (read_line()));;
 print_newline();;
