@@ -1,4 +1,4 @@
-(* Найти количество сиволов *)
+(* Мат ожидание чисел от 10 до 99 *)
 
 let sumnum n =
   if not (n<100 && n>9) then failwith "Error: too many numbers";

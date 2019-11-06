@@ -14,16 +14,16 @@ let if_glas c =
 let colglas s =
     let sum = ref 0 in
     begin
-        for i = 0 to (length s) - 1 do
-            sum:=!sum+(if_glas s.[i])
+        for i = 0 to (length s) - 2 do
+            sum:=!sum+((if_glas s.[i]) land (if_glas s.[i+1]))
         done;
         float !sum;
     end
 ;; 
 
 let expectation s =
-    (colglas s)/.(float (length s))
+   (colglas s)./(float (length s))
 ;;
-       
+
 print_float (expectation (read_line()));;
 print_newline();;

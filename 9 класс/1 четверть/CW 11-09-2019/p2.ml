@@ -1,4 +1,4 @@
-(* Мат ожидание символов от 100 до 999 *)
+(* Мат ожидание чисел от 100 до 999 *)
 
 let sumnum n =
   if not (n<1000 && n>99) then failwith "Error: too many numbers";
