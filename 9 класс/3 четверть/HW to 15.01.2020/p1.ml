@@ -20,20 +20,42 @@ let check n =
         Found l -> Some l
 ;;
 
-let string_of_int_list l = 
-    let rec f l s =
-        match l with 
-        | [] -> s
-        | hd::tl -> f tl (s^(string_of_int hd)^";")
-    in
-    "["^(f l "")^"]"
+let create_matrixxx n = 
+    Array.make_matrix n n ". "
+;;
+
+let replace_in_matrix t l = 
+    let lt = Array.length t in
+    for i = 0 to lt-1 do
+        t.(i).(nth l i) <- "F "
+    done
+;;
+
+let string_of_int_array_array a =
+    let ans = ref "" in
+    begin
+        for i = 0 to (Array.length a)-1 do
+            for j = 0 to (Array.length a)-1 do
+                ans:=!ans^(a.(i).(j));
+            done;
+            ans:=!ans^"\n";
+        done;
+        !ans
+    end
+;;
+
+let the_nearest_function_to_main_but_not_main l =
+    let a = create_matrixxx (List.length l) in
+    begin 
+        replace_in_matrix a l;
+        string_of_int_array_array a;
+    end
 ;;
 
 let main x = 
     match check x with 
-    | None -> print_string "No."
-    | Some l -> print_string ("Yes. For example, this:\n"^(string_of_int_list l))
+    | None -> print_string "No.\n"
+    | Some l -> print_string ("Yes. For example, this:\n"^(the_nearest_function_to_main_but_not_main l))
 ;;
 
 main (read_int());;
-print_newline();;
