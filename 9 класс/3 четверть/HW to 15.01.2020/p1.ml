@@ -1,4 +1,5 @@
 open List;;
+open Unix;;
 exception Found of int list;;
 
 let check n =
@@ -58,4 +59,9 @@ let main x =
     | Some l -> print_string ("Yes. For example, this:\n"^(the_nearest_function_to_main_but_not_main l))
 ;;
 
-main (read_int());;
+let x = read_int();;
+
+let t = (gettimeofday());;
+main (x);;
+print_float (gettimeofday()-.t);;
+print_newline();;
