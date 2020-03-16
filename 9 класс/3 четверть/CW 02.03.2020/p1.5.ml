@@ -7,6 +7,6 @@ let rec print_lambda lam =
     | Abs (s,l) -> print_string ("(₴" ^ s ^ "."); print_lambda l; print_string ")"
 ;;
 
-let l = Ayy ((Abs ("xyu", Var "xyu")), Var "xyu");;
+let l = Ayy ((Abs ("xyz", Var "xyz")), Var "xyz");;
 print_lambda l;;
 print_newline();;
