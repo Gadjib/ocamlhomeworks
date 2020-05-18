@@ -1,0 +1,23 @@
+I.
+\x.x
+\y.y
+\t.t
+\x.z
+infinity
+infinity
+
+II.
+True
+\x.x
+\f.\x.x
+\x.\y.x
+
+III.
+\f.f
+\f.f
+\f.f
+
+IV.
+\f.\x.f (f x)
+\f.\x.f (f (f x))
+6 (мне лень расписывать)
